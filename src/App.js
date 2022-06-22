@@ -2,5 +2,19 @@ import React from "react";
 import "./App.css";
 
 export default function App() {
-  return <h1> Weather App</h1>;
+  return (
+    <div className="App">
+      <h1> Weather App</h1>
+      <p>
+        This project was coded by{" "}
+        <a href="https://WWW.milawp.com" target="_blank">
+          Mila WP
+        </a>{" "}
+        and is{" "}
+        <a href="https://github.com/Milawp/react-weather-app" target="_blank">
+          Open Sourced.
+        </a>
+      </p>
+    </div>
+  );
 }

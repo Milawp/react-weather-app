@@ -1,4 +1,52 @@
+:root {
+  --primary-color: #43947d;
+  --secondary-color: #70757a;
+}
+
 .Weather {
-  border: 1px solid #43947d;
+  border: 1px solid var(--primary-color);
   border-radius: 5px;
+  padding: 16px;
+}
+
+.Weather h1 {
+  font-size: 22px;
+  color: var(--primary-color);
+  line-height: 26px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.Weather ul {
+  color: var(--secondary-color);
+  margin: 0;
+  padding: 0;
+}
+
+.Weather li {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 100px;
+  list-style: none;
+}
+
+.Weather form {
+  margin-top: 10px;
+}
+
+.Weather .temp {
+  font-size: 55px;
+}
+
+.Weather .unit {
+  position: relative;
+  top: -28px;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.Weather img {
+  position: relative;
+  top: -15px;
+  margin-right: 10px;
 }

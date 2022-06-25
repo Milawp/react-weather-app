@@ -65,7 +65,6 @@ export default function Weather(props) {
     );
   } else {
     const apiKey = "6ba812e381c99fbb6a22f689f309c7f6";
-    let city = "Tulsa";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return "Loading...";

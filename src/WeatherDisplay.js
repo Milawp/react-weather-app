@@ -2,7 +2,7 @@ import React from "react";
 import FriendlyDate from "./FriendlyDate";
 import WeatherIcon from "./WeatherIcon";
 
-export default function (props) {
+export default function WeatherDisplay(props) {
   return (
     <div className="WeatherInfo">
       {" "}

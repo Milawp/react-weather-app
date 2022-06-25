@@ -1,6 +1,7 @@
 import React from "react";
 import FriendlyDate from "./FriendlyDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemp from "./WeatherTemp";
 
 export default function WeatherDisplay(props) {
   return (
@@ -16,8 +17,7 @@ export default function WeatherDisplay(props) {
       <div className="row">
         <div className="col-6">
           <WeatherIcon code={props.data.icon} />
-          <span className="temp">{props.data.temp}</span>
-          <span className="unit">°C</span>
+          <WeatherTemp celsius={props.data.temp} />
         </div>
         <div className="col-6">
           <ul>

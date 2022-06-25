@@ -50,3 +50,7 @@
   top: 8px;
   margin-right: 10px;
 }
+
+.WeatherTemp a {
+  text-decoration: none;
+}

@@ -54,3 +54,17 @@
 .WeatherTemp a {
   text-decoration: none;
 }
+
+@media (max-width: 970px) {
+  .Weather canvas {
+    margin-right: 0px;
+  }
+  .Weather .unit {
+    position: relative;
+    top: -25px;
+    margin-left: 0px;
+  }
+  .Weather .temp {
+    font-size: 50px;
+  }
+}

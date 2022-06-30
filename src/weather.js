@@ -11,7 +11,7 @@ export default function Weather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
-      coords: response.data.coord,
+      coord: response.data.coord,
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
@@ -20,13 +20,9 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       feels: Math.round(response.data.main.feels_like),
+      currentMin: Math.round (response.data.main.temp_min) ,
+      currentMax:Math.round (response.data.main.temp_max)  ,
     });
-  }
-
-  function search() {
-    const apiKey = "6ba812e381c99fbb6a22f689f309c7f6";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
   }
 
   function handleSubmit(event) {
@@ -36,6 +32,12 @@ export default function Weather(props) {
 
   function handleUpdateCity(event) {
     setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "6ba812e381c99fbb6a22f689f309c7f6";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   if (weatherData.ready) {
@@ -62,7 +64,7 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherDisplay data={weatherData} />
-        <WeatherForecast coords={weatherData.coords} />
+        <WeatherForecast coord={weatherData.coord} />
       </div>
     );
   } else {

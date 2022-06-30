@@ -1,35 +1,50 @@
-import React from "react";
-import WeatherIcon from "./WeatherIcon";
+import React, { useState } from "react";
 import "./WeatherForecast.css";
-import axios, { Axios } from "axios";
+import axios from "axios";
+import DailyWeatherForecast from "./DailyWeatherForecast";
 
 export default function WeatherForecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+
   function handleResponse(response) {
-    console.log(response.data);
+    setForecast(response.data.daily);
+    setLoaded(true);
   }
 
-  let lon = props.coords.lon;
-  let lat = props.coords.lat;
-  let unit = "metric";
-  let apiKey = "6ba812e381c99fbb6a22f689f309c7f6";
-  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
-
-  axios.get(apiURL).then(handleResponse);
-
-  return (
-    <div className="WeatherForecast">
-      <div className="row">
-        <div className="col">
-          <div className="forecast-day">Thu</div>
-          <div className="forecast-img">
-            <WeatherIcon code="04d" size={45} />
+  if (loaded) {
+    return (
+      <div className="WeatherForecast">
+        <div className="row">
+          <div className="col">
+            <DailyWeatherForecast data={forecast[1]} />
           </div>
-          <div className="WeatherForecast-mix-max-temp">
-            <span className="WeatherForecast-max">19</span>°{""}
-            <span className="WeatherForecast-min">10</span>°
+          <div className="col">
+            <DailyWeatherForecast data={forecast[2]} />
+          </div>
+          <div className="col">
+            <DailyWeatherForecast data={forecast[3]} />
+          </div>
+          <div className="col">
+            <DailyWeatherForecast data={forecast[4]} />
+          </div>
+          <div className="col">
+            <DailyWeatherForecast data={forecast[5]} />
+          </div>
+          <div className="col">
+            <DailyWeatherForecast data={forecast[6]} />
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "6ba812e381c99fbb6a22f689f309c7f6";
+    let lon = props.coord.lon;
+    let lat = props.coord.lat;
+    let unit = "metric";
+    let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiURL).then(handleResponse);
+
+    return null;
+  }
 }

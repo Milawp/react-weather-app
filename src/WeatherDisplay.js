@@ -5,7 +5,7 @@ import WeatherTemp from "./WeatherTemp";
 
 export default function WeatherDisplay(props) {
   return (
-    <div className="WeatherInfo">
+    <div className="WeatherDisplay">
       {" "}
       <h1> {props.data.city} </h1>
       <ul>
@@ -21,7 +21,9 @@ export default function WeatherDisplay(props) {
         </div>
         <div className="col-6">
           <ul>
-            <li>Feels Like: {props.data.feels}°</li>
+            <li>
+              Max:{props.data.currentMax}° | Min: {props.data.currentMin}°
+            </li>
             <li>Humidity: {props.data.humidity}%</li>
             <li>Wind: {props.data.wind} Km/h</li>
           </ul>

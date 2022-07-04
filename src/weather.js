@@ -20,8 +20,8 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       feels: Math.round(response.data.main.feels_like),
-      currentMin: Math.round (response.data.main.temp_min) ,
-      currentMax:Math.round (response.data.main.temp_max)  ,
+      currentMin: Math.round(response.data.main.temp_min),
+      currentMax: Math.round(response.data.main.temp_max),
     });
   }
 
@@ -36,7 +36,7 @@ export default function Weather(props) {
 
   function search() {
     const apiKey = "6ba812e381c99fbb6a22f689f309c7f6";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
   }
 

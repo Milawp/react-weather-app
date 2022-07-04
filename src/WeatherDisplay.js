@@ -17,15 +17,16 @@ export default function WeatherDisplay(props) {
       <div className="row">
         <div className="col-6">
           <WeatherIcon code={props.data.icon} size={52} />
-          <WeatherTemp celsius={props.data.temp} />
+          <WeatherTemp temp={props.data.temp} />
         </div>
         <div className="col-6">
           <ul>
             <li>
-              Max:{props.data.currentMax}° | Min: {props.data.currentMin}°
+              <strong>{props.data.currentMax}</strong>° |{" "}
+              {props.data.currentMin}°
             </li>
             <li>Humidity: {props.data.humidity}%</li>
-            <li>Wind: {props.data.wind} Km/h</li>
+            <li>Wind: {Math.round(props.data.wind)} mph</li>
           </ul>
         </div>
       </div>
